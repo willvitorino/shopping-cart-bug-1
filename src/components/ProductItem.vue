@@ -13,7 +13,9 @@ defineEmits(['increase-quantity', 'decrease-quantity'])
   <li class="flex flex-col my-2 w-full odd:bg-gray-100 odd:dark:bg-gray-700 p-4">
     <span class="flex items-center justify-between w-full space-x-3">
       <span class="w-1/3 truncate">{{ product.name }}</span>
-      <span>${{ product.price / 100 }}</span>
+      <span>
+        {{ Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format((product.price) / 100) }}
+      </span>
       <span class="inline-flex items-center justify-between space-x-3">
         <button
           class="bg-blue-400 py-1 px-2 rounded-md cursor-pointer hover:bg-blue-600"
